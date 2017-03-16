@@ -1,19 +1,20 @@
 import urllib2
-import urllib
 import json
 import sys
 import getopt
 import datetime
+
+'''
+   This function is used to retrieve the json from the
+   the Email Server Blacklist API @ https://www.dnswatch.info/dns/rbl-lookup
+'''
 
 "Define global variables"
 IP = '98.150.108.228'
 defaultAPI = 'https://www.dnswatch.info/blacklist-lookup-progress'
 defaultUserIDLookUpAddr = 'https://www.dnswatch.info/blacklist-lookup'
 isShowProgress = False
-'''
-   This function is used to retrieve the json from the
-   the Email Server Blacklist API @ https://www.dnswatch.info/dns/rbl-lookup
-'''
+
 def getJsonFromAPI(_completeURL):
     jsonResult = urllib2.urlopen(_completeURL).read()
     decodedJson = json.loads(jsonResult)
